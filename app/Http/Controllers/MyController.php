@@ -8,10 +8,10 @@ class MyController extends Controller
 {
 
     public function myPage(){
-        return view('test.test');
+        $name = 'Лось Ангелина Юрьевна';
+        return view('test.test', [
+            'name' => $name
+        ]);
     }
 
-    public function auth(){
-        return view('my-auth.login');
-    }
 }
