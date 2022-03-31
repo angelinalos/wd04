@@ -8,10 +8,7 @@ class MyController extends Controller
 {
 
     public function myPage(){
-        $name = 'Лось Ангелина Юрьевна';
-        return view('test.test', [
-            'name' => $name
-        ]);
+        return view('test.test');
     }
 
 }

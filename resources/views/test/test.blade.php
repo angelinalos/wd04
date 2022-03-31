@@ -8,8 +8,7 @@
 <body>
 <div class="flex justify-center p-8 bg-purple-200 font-serif h-screen">
 <div class="pt-2 text-center shadow-md shadow-blue-400/50 w-96 h-14 rounded-md">
-{{--  {{!!  интерпретирует html !!}}  --}}
-    <h1 class="text-purple-900 text-3xl"> {{ $name }} </h1>
+    <h1 class="text-purple-900 text-3xl"> Лось Ангелина Юрьевна </h1>
 </div>
 </div>
 
