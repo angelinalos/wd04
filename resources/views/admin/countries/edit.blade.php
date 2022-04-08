@@ -1,9 +1,9 @@
-@extends('WD04.loc.resources.views.layouts.admin')
+@extends('layouts.admin')
 @section('content')
     <div class="grid-form">
         <div class="grid-form1">
             <h3 id="forms-example" class="">Add article</h3>
-            <form action="{{route('admin.update-country', ['id'=>$country->id])  }}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('country.update', ['country'=>$country->id])  }}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div class="form-group">
