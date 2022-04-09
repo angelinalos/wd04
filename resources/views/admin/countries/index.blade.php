@@ -1,4 +1,4 @@
-@extends('WD04.loc.resources.views.layouts.admin')
+@extends('layouts.admin')
 @section('content')
     <div class="grid_3 grid_5">
         <h3 class="head-top">Countries</h3>
@@ -18,8 +18,8 @@
                         <tr>
                             <td>{{$country->name}}</td>
                             <td>
-                                <a href="{{route('admin.edit-country',['id'=>$country->id])}}" class="btn btn-xs btn-dark">Edit</a>
-                                <form action="{{route('admin.delete-country', ['id'=>$country->id])}}" method="POST">
+                                <a href="{{route('country.edit',['country'=>$country->id])}}" class="btn btn-xs btn-dark">Edit</a>
+                                <form action="{{route('country.destroy', ['country'=>$country->id])}}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-xs btn-dark">Delete</button>

@@ -48,12 +48,11 @@ Route::delete('admin/articles/delete/{id}', [App\Http\Controllers\Admin\ArticleC
 
 //--------CRUD countries
 
-Route::get('admin/countries', [App\Http\Controllers\Admin\CountryController::class, 'index']);
-Route::get('admin/countries/create', [App\Http\Controllers\Admin\CountryController::class, 'create']);
-Route::post('admin/countries/storage', [App\Http\Controllers\Admin\CountryController::class, 'storage'])->name('admin.storage-country');
-Route::get('admin/countries/edit/{id}', [App\Http\Controllers\Admin\CountryController::class, 'edit'])->name('admin.edit-country');
-Route::put('admin/countries/update/{id}', [App\Http\Controllers\Admin\CountryController::class, 'update'])->name('admin.update-country');
-Route::delete('admin/countries/delete/{id}', [App\Http\Controllers\Admin\CountryController::class, 'delete'])->name('admin.delete-country');
+//Route::get('admin/countries', [App\Http\Controllers\Admin\CountryController::class, 'index']);
+//Route::get('admin/countries/create', [App\Http\Controllers\Admin\CountryController::class, 'create']);
+//Route::post('admin/countries/storage', [App\Http\Controllers\Admin\CountryController::class, 'storage'])->name('admin.storage-country');
+//Route::get('admin/countries/edit/{id}', [App\Http\Controllers\Admin\CountryController::class, 'edit'])->name('admin.edit-country');
+//Route::put('admin/countries/update/{id}', [App\Http\Controllers\Admin\CountryController::class, 'update'])->name('admin.update-country');
+//Route::delete('admin/countries/delete/{id}', [App\Http\Controllers\Admin\CountryController::class, 'delete'])->name('admin.delete-country');
 
-
-
+Route::resource('admin/country', \App\Http\Controllers\Admin\CountryController::class)->except(['show']);
