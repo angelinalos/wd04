@@ -55,4 +55,6 @@ Route::delete('admin/articles/delete/{id}', [App\Http\Controllers\Admin\ArticleC
 
 Route::resource('admin/country', \App\Http\Controllers\Admin\CountryController::class)->except(['show']);
 Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class)->except(['show']);
+Route::resource('product', \App\Http\Controllers\Admin\ProductController::class)->except(['show']);
+
 
