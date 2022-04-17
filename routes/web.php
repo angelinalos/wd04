@@ -12,9 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\SiteController::class, 'index']);
 
 Route::get('/my-first-page', [\App\Http\Controllers\MyController::class, 'myPage']);
 
@@ -37,7 +35,7 @@ Route::get('admin', [App\Http\Controllers\Admin\AdminController::class, 'dashboa
 
 //------CRUD articles
 
-Route::get('admin/articles', [App\Http\Controllers\Admin\ArticleController::class, 'index']);
+Route::get('admin/articles', [App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('admin.article.index');
 Route::get('admin/articles/create', [App\Http\Controllers\Admin\ArticleController::class, 'create']);
 Route::post('admin/articles/storage', [App\Http\Controllers\Admin\ArticleController::class, 'storage'])->name('admin.storage-article');
 Route::get('admin/articles/edit/{id}', [App\Http\Controllers\Admin\ArticleController::class, 'edit'])->name('admin.edit-article');
@@ -56,3 +54,5 @@ Route::delete('admin/articles/delete/{id}', [App\Http\Controllers\Admin\ArticleC
 //Route::delete('admin/countries/delete/{id}', [App\Http\Controllers\Admin\CountryController::class, 'delete'])->name('admin.delete-country');
 
 Route::resource('admin/country', \App\Http\Controllers\Admin\CountryController::class)->except(['show']);
+Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class)->except(['show']);
+
