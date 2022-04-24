@@ -10,7 +10,7 @@
                     <label>Name</label>
                     <input type="text" name="name" class="form-control" value="{{$category->name}}">
                 </div>
-@if($category->image)
+            @if($category->image)
                     <img src="{{asset($category->image)}} " alt="">
             @endif
                 <div class="form-group">
