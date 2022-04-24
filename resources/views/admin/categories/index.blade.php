@@ -11,6 +11,7 @@
                     <tr>
                         <th >№</th>
                         <th >Category name</th>
+                        <th>Image</th>
                         <th >Actions</th>
                     </tr>
                     </thead>
@@ -19,6 +20,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{$category->name}}</td>
+                            <td>{{asset($category->image)}}</td>
                             <td>
                                 <a href="{{route('category.edit',['category'=>$category->id])}}" class="btn btn-xs btn-danger">Edit</a>
                                 <form action="{{route('category.destroy', ['category'=>$category->id])}}" method="POST">

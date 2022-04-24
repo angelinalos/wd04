@@ -31,7 +31,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //------
 
-Route::get('admin', [App\Http\Controllers\Admin\AdminController::class, 'dashboard']);
 
 //------CRUD articles
 
@@ -53,8 +52,10 @@ Route::delete('admin/articles/delete/{id}', [App\Http\Controllers\Admin\ArticleC
 //Route::put('admin/countries/update/{id}', [App\Http\Controllers\Admin\CountryController::class, 'update'])->name('admin.update-country');
 //Route::delete('admin/countries/delete/{id}', [App\Http\Controllers\Admin\CountryController::class, 'delete'])->name('admin.delete-country');
 
-Route::resource('admin/country', \App\Http\Controllers\Admin\CountryController::class)->except(['show']);
-Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class)->except(['show']);
-Route::resource('product', \App\Http\Controllers\Admin\ProductController::class)->except(['show']);
-
+Route::middleware('role:admin')->group(function () {
+    Route::get('admin', [App\Http\Controllers\Admin\AdminController::class, 'dashboard']);
+    Route::resource('admin/country', \App\Http\Controllers\Admin\CountryController::class)->except(['show']);
+    Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class)->except(['show']);
+    Route::resource('product', \App\Http\Controllers\Admin\ProductController::class)->except(['show']);
+});
 
