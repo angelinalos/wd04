@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [App\Http\Controllers\SiteController::class, 'index']);
 
-Route::get('/my-first-page', [\App\Http\Controllers\MyController::class, 'myPage']);
+Route::get('/converter', [\App\Http\Controllers\ConverterController::class, 'index'])->name('converter.index');
+Route::post('/converter', [\App\Http\Controllers\ConverterController::class, 'update'])->name('converter.update');
+
 
 //-----authorization
 
