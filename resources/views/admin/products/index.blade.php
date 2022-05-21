@@ -11,6 +11,7 @@
                     <tr>
                         <th >№</th>
                         <th >Product name</th>
+                        <th>Picture</th>
                         <th >Actions</th>
                     </tr>
                     </thead>
@@ -19,6 +20,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{$product->name}}</td>
+                            <td>{{$product->picture}}</td>
                             <td>
                                 <a href="{{route('product.edit',['product'=>$product->id])}}" class="btn btn-xs btn-danger">Edit</a>
                                 <form action="{{route('product.destroy', ['product'=>$product->id])}}" method="POST">

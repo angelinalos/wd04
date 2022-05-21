@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -42,7 +43,14 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        Product::create($request->all());
+        $data = $request->all();
+        if ($request->hasFile('picture')){
+            $file = $request->file('picture');
+            $newFileName = time().'-'.$request->name.'.'.$file->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('products', $file, $newFileName);
+            $data['picture'] = Storage::url('pictures'.$newFileName);
+        }
+        Product::create($data);
         return redirect(route('product.index'));
     }
 
