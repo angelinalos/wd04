@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['middleware' => 'auth:sanctum'], function() {
+    Route::apiResource('categories', App\Http\Controllers\Api\RoleController::class);
+    Route::delete('users/{id}', [App\Http\Controllers\Api\RoleController::class, 'deleteUser']);
+});
+
